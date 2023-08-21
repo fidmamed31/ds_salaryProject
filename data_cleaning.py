@@ -48,12 +48,14 @@ df["Company_age"]=df["Founded"].apply(lambda x:(2023-x) if x>0 else x)
 
 #python
 df["python"]=df["Job Description"].apply(lambda x:1 if "python" in x.lower() else 0)
+df["aws"]=df["Job Description"].apply(lambda x:1 if "aws" in x.lower() else 0)
+df["excel"]=df["Job Description"].apply(lambda x:1 if "excel" in x.lower() else 0)
+
+
 
 df.python.value_counts()
 
 #remove irrelevant features
 df_out=df.drop(["Unnamed: 0"],axis=1)
-
 df_out.to_csv("salary_data_cleaned.csv",index=False)
-
 pd.read_csv("salary_data_cleaned.csv")
